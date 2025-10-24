@@ -1,0 +1,120 @@
+body {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin-top: 30px;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+input[type="date"] {
+  padding: 6px 8px;
+  font-size: 14px;
+}
+
+button {
+  padding: 8px 12px;
+  margin: 0 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.record-list {
+  list-style: none;
+  padding: 0;
+  max-width: 420px;
+  margin: 12px auto;
+  text-align: left;
+}
+
+.record-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  background: #f9f9f9;
+}
+
+.record-time {
+  color: #333;
+  font-weight: 600;
+}
+
+.record-meta {
+  color: #666;
+  font-size: 12px;
+}
+
+/* med slot layout sits where the note row used to be */
+.med-slots {
+  margin-top: 18px;
+  display: block;
+  text-align: center;
+}
+
+.delete-btn {
+  background: transparent;
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.record-item .meta-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.med-slots-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+.med-slot-item {
+  background: #2d9cdb;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  min-width: 120px;
+  max-width: 32%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.med-slot-item {
+  background: #2d9cdb;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.med-slot-item:hover { opacity: 0.92 }
+
+.med-slot-item .del-slot {
+  margin-left: 6px;
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.9);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+/* legacy placeholders removed */

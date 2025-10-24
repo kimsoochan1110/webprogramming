@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Medicine Manager</title>
+  <link rel="stylesheet" href="style.css"> <!-- CSS 연결 -->
+</head>
+<body>
+  <h1>Medicine Manager</h1>
+
+  <div class="controls">
+    <label for="datePicker">날짜 선택:</label>
+    <input type="date" id="datePicker">
+    <button id="recordNow">지금 복용 기록</button>
+    <button id="clearDay">이 날짜 기록 초기화</button>
+    <button id="clearAll">전체 초기화</button>
+  </div>
+
+  <div class="med-slots">
+    <label for="newMedInput">약 종류 슬롯:</label>
+    <input type="text" id="newMedInput" placeholder="약 이름을 입력하세요">
+    <button id="addMedBtn">추가</button>
+    <ul id="medSlotsList" class="med-slots-list"></ul>
+  </div>
+
+  <p id="countInfo">선택된 날짜의 기록: 0회</p>
+
+  <ul id="recordList" class="record-list"></ul>
+
+  <script src="app.js"></script> <!-- JS 연결 -->
+</body>
+</html>
