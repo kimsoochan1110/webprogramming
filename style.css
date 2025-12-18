@@ -1,20 +1,68 @@
+.med-slot-item span {
+  display: block;
+  text-align: left;
+  padding-right: 4px;
+}
+* {
+  box-sizing: border-box;
+}
+
 body {
   text-align: center;
   font-family: Arial, sans-serif;
-  margin-top: 30px;
+  margin: 0;
+  padding: 24px 16px 40px;
+  background: linear-gradient(160deg, #0ca6a1 0%, #058f8a 60%, #007979 100%);
+  background-attachment: fixed;
+  background-size: cover;
+  color: #f7fbfb;
+}
+
+h1 {
+  margin: 0 0 20px;
+  font-size: clamp(24px, 5vw, 32px);
+  color: #ffe9d6;
 }
 
 .controls {
   display: flex;
-  gap: 8px;
+  gap: 0px;
   justify-content: center;
   align-items: center;
-  margin-bottom: 16px;
+  flex-wrap: wrap;
+  margin: 0 auto 16px;
+  padding: 12px;
+  max-width: 520px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 12px 28px rgba(0, 59, 58, 0.22);
 }
 
 input[type="date"] {
-  padding: 6px 8px;
+  padding: 10px 14px;
   font-size: 14px;
+  border: 1px solid #8fdad6;
+  border-radius: 999px;
+  background: #fff;
+  width: 100%;
+  color: #0e6f6b;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+input[type="date"]::-webkit-datetime-edit,
+input[type="date"]::-webkit-datetime-edit-fields-wrapper,
+input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field {
+  color: #0e6f6b;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: brightness(0) invert(40%) sepia(24%) saturate(852%) hue-rotate(123deg) brightness(84%) contrast(93%);
 }
 
 button {
@@ -22,33 +70,84 @@ button {
   margin: 0 4px;
   font-size: 14px;
   cursor: pointer;
+  border-radius: 999px;
+  border: none;
+  background: #f47c32;
+  color: #fff;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+button:hover {
+  box-shadow: 0 10px 24px rgba(244, 124, 50, 0.35);
+  animation: hoverLift 0.32s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.controls button {
+  flex: 1 1 100%;
+  margin: 6px 0 0;
+}
+
+.med-slots input,
+.med-slots button {
+  width: 100%;
+  margin: 8px 0 0;
+  border-radius: 999px;
+  border: none;
+}
+
+.med-slots input {
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: inset 0 0 0 1px rgba(0, 121, 121, 0.25),
+    0 6px 12px rgba(0, 59, 58, 0.14);
+  color: #0f4f4d;
+}
+
+.med-slots input::placeholder {
+  color: rgba(15, 79, 77, 0.55);
 }
 
 .record-list {
   list-style: none;
   padding: 0;
-  max-width: 420px;
-  margin: 12px auto;
+  width: 100%;
+  max-width: 520px;
+  margin: 20px auto 0;
   text-align: left;
 }
 
 .record-item {
   display: flex;
   justify-content: space-between;
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  margin-bottom: 6px;
-  background: #f9f9f9;
+  padding: 16px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 14px 32px rgba(0, 46, 43, 0.18);
+  animation: recordEnter 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transform-origin: top;
+  will-change: transform, opacity;
+  align-items: center;
+  gap: 12px;
 }
 
-.record-time {
-  color: #333;
-  font-weight: 600;
+.record-primary {
+  color: #12403d;
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
 }
 
 .record-meta {
-  color: #666;
+  color: rgba(18, 64, 61, 0.7);
   font-size: 12px;
 }
 
@@ -57,14 +156,21 @@ button {
   margin-top: 18px;
   display: block;
   text-align: center;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: none;
 }
 
 .delete-btn {
   background: transparent;
-  border: 1px solid #e74c3c;
-  color: #e74c3c;
-  padding: 4px 8px;
-  border-radius: 4px;
+  border: 1px solid #ff9e80;
+  color: #ff6b4a;
+  padding: 4px 12px;
+  border-radius: 999px;
   cursor: pointer;
   font-size: 12px;
 }
@@ -73,6 +179,7 @@ button {
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-left: auto;
 }
 
 .med-slots-list {
@@ -83,38 +190,497 @@ button {
   gap: 8px;
   justify-content: center;
 }
-.med-slot-item {
-  background: #2d9cdb;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  min-width: 120px;
-  max-width: 32%;
+
+/* consumed list: shows aggregated counts like '약이름 × 3' */
+.consumed-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 12px 0 6px;
+}
+
+.consumed-item {
+  background: rgba(255,255,255,0.14);
+  color: #eaf9f8;
+  padding: 8px 14px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  max-width: 320px;
+  font-weight: 700;
+  font-size: 13px;
+  position: relative;
+  overflow: hidden;
+  will-change: transform, opacity;
+}
+
+.consumed-item--enter {
+  animation: medSlotEnter 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.consumed-item .count {
+  background: transparent;
+  color: #eaf9f8;
+  padding: 0 6px;
+  border-radius: 0;
+  font-weight: 800;
+  position: relative;
+  z-index: 2;
+  text-shadow: -1px -1px rgba(13, 157, 150, 0.9),
+    1px -1px rgba(13, 157, 150, 0.9),
+    -1px 1px rgba(13, 157, 150, 0.9),
+    1px 1px rgba(13, 157, 150, 0.9);
+}
+
+.consumed-name {
+  display: inline-block;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
+  max-width: 100%;
+  flex: 1 1 0;
+  min-width: 0;
+  text-align: left;
+  padding-right: 6px;
+}
+
+.consumed-item .consumed-inc,
+.consumed-item .consumed-del,
+.consumed-item .count {
+  flex: 0 0 auto;
+}
+
+/* pill-like white overlay animation */
+.consumed-item::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  right: -4px;
+  width: calc(50% + 10px);
+  height: calc(100% + 4px);
+  background: #ffffff;
+  transform: translateX(110%);
+  transition: transform 0.36s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 0 999px 999px 0;
+}
+
+.consumed-item:hover::after,
+.consumed-item.hovered-by-btn::after {
+  transform: translateX(0);
+}
+
+/* ensure content sits above the overlay */
+.consumed-item .consumed-name,
+.consumed-item .consumed-inc,
+.consumed-item .consumed-del {
+  position: relative;
+  z-index: 2;
+}
+
+/* unify button sizes to match pill look */
+.consumed-item .consumed-inc,
+.consumed-item .consumed-del {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  text-shadow: -0.9px -0.9px rgba(13, 157, 150, 0.95),
+    0.9px -0.9px rgba(13, 157, 150, 0.95),
+    -0.9px 0.9px rgba(13, 157, 150, 0.95),
+    0.9px 0.9px rgba(13, 157, 150, 0.95),
+    0 0 3px rgba(13, 157, 150, 0.7);
+}
+
+.consumed-item .count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+}
+
+/* animation classes */
+.count--inc {
+  animation: countInc 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.count--dec {
+  animation: countDec 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes countInc {
+  0% { transform: translateY(0) scale(1); }
+  40% { transform: translateY(-8px) scale(1.06); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes countDec {
+  0% { transform: translateY(0) scale(1); }
+  40% { transform: translateY(8px) scale(0.98); }
+  100% { transform: translateY(0) scale(1); }
 }
 
 .med-slot-item {
-  background: #2d9cdb;
-  color: white;
-  padding: 6px 10px;
-  border-radius: 6px;
+  background: #1ab0a1;
+  color: #fffef9;
+  padding: 8px 16px;
+  border-radius: 999px;
   cursor: pointer;
   font-size: 13px;
+  min-width: 140px;
+  max-width: 48%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 40px;
+  align-items: center;
+  gap: 12px;
+  animation: medSlotEnter 0.42s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transform-origin: center;
+  will-change: transform, opacity;
+  position: relative;
+  overflow: hidden;
+}
+
+.med-slot-item span {
+  display: block;
+  text-align: left;
+  padding-right: 4px;
+  color: #fff;
+  font-weight: 600;
+  position: relative;
+  z-index: 2;
+  text-shadow: -1.1px -1.1px 0 rgba(13, 157, 150, 0.95),
+    1.1px -1.1px 0 rgba(13, 157, 150, 0.95),
+    -1.1px 1.1px 0 rgba(13, 157, 150, 0.95),
+    1.1px 1.1px 0 rgba(13, 157, 150, 0.95),
+    0 0 4px rgba(13, 157, 150, 0.75);
 }
 
 .med-slot-item:hover { opacity: 0.92 }
 
+.med-slot-item::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  right: -3px;
+  width: calc(50% + 8px);
+  height: calc(100% + 2px);
+  background: #ffffff;
+  transform: translateX(110%);
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 0 999px 999px 0;
+  will-change: transform;
+}
+
+.med-slot-item:hover::after,
+.med-slot-item:focus-visible::after {
+  transform: translateX(0);
+}
+
 .med-slot-item .del-slot {
-  margin-left: 6px;
   background: transparent;
   border: none;
-  color: rgba(255,255,255,0.9);
+  color: #ffffff;
   cursor: pointer;
   font-weight: 700;
+  font-size: 18px;
+  line-height: 1;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 6px;
+  text-shadow: -0.9px -0.9px rgba(26, 176, 161, 0.9),
+    0.9px -0.9px rgba(26, 176, 161, 0.9),
+    -0.9px 0.9px rgba(26, 176, 161, 0.9),
+    0.9px 0.9px rgba(26, 176, 161, 0.9);
+  position: relative;
+  z-index: 2;
 }
 
 /* legacy placeholders removed */
+
+@media (max-width: 540px) {
+  body {
+    padding: 28px 14px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .controls {
+    display: grid;
+    grid-template-columns: 1.2fr 0.9fr 0.9fr;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 18px;
+    border-radius: 40px;
+    background: transparent;
+    box-shadow: none;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .controls input[type="date"],
+  .controls button {
+    width: 100%;
+    margin: 0;
+  }
+
+  .controls button {
+    padding: 11px 0;
+    font-size: 13px;
+  }
+
+  .med-slots {
+    padding: 0;
+    margin-top: 12px;
+    border-radius: 40px;
+    background: transparent;
+    box-shadow: none;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .med-slots input {
+    margin: 0 0 10px;
+  }
+
+  .med-slots button {
+    margin: 0;
+    width: 100%;
+    padding: 12px 0;
+  }
+
+  #countInfo {
+    margin-top: 18px;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .record-list {
+    margin-top: 12px;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .record-item {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 10px;
+    padding: 14px 16px;
+  }
+
+  .record-item .meta-right {
+    width: auto;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .record-meta {
+    text-align: right;
+  }
+
+  .delete-btn {
+    padding: 6px 16px;
+  }
+
+  .med-slots-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+  }
+
+  .med-slot-item {
+    max-width: none;
+  }
+}
+
+@media (max-width: 420px) {
+  #countInfo {
+    font-size: 14px;
+  }
+
+  .controls {
+    grid-template-columns: 1.1fr 0.95fr 0.95fr;
+    gap: 8px;
+    padding: 14px 16px;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .controls button {
+    padding: 10px 0;
+    font-size: 12px;
+    letter-spacing: 0.1px;
+  }
+
+  .record-item {
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    text-align: left;
+    padding: 14px 14px;
+  }
+
+  .record-item .meta-right {
+    width: auto;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .med-slot-item {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .record-meta {
+    text-align: right;
+  }
+}
+
+@media (min-width: 600px) {
+  body {
+    padding: 40px;
+  }
+
+  .controls {
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .controls button,
+  input[type="date"] {
+    flex: 0 0 auto;
+    width: auto;
+    margin: 0 4px;
+  }
+
+  .med-slots {
+    padding: 20px;
+  }
+
+  .med-slots input,
+  .med-slots button {
+    width: auto;
+    margin: 0 4px;
+  }
+
+  .med-slot-item {
+    max-width: 30%;
+  }
+}
+
+@media (min-width: 900px) {
+  body {
+    padding: 40px 0 80px;
+    background: linear-gradient(160deg, #0ca6a1 0%, #058f8a 60%, #007979 100%);
+  }
+
+  .controls {
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) repeat(2, minmax(150px, 200px));
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 10px 24px rgba(0, 46, 43, 0.2);
+    padding: 16px 24px;
+    max-width: 720px;
+    margin-bottom: 24px;
+  }
+
+  input[type="date"] {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .controls button {
+    flex: initial;
+    width: 100%;
+    margin: 0;
+    padding: 12px 0;
+    border-radius: 999px;
+  }
+
+  .med-slots {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    max-width: 640px;
+  }
+
+  .med-slots input,
+  .med-slots button {
+    width: auto;
+    margin: 0 4px;
+  }
+
+  .record-list {
+    max-width: 640px;
+  }
+
+  .record-item {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 18px 36px rgba(0, 46, 43, 0.18);
+  }
+}
+
+@keyframes hoverLift {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  60% {
+    transform: translateY(-6px) scale(1.03);
+  }
+  100% {
+    transform: translateY(-3px) scale(1.015);
+  }
+}
+
+@keyframes recordEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(-16px) scaleY(0.9);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(3px) scaleY(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+}
+
+@keyframes medSlotEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(8px);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(1.04) translateY(-3px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
