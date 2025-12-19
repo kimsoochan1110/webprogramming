@@ -6,8 +6,10 @@
 https://kimsoochan1110.github.io/webprogramming/
 
 ## 스크린샷
-
+### 데스크탑
 > <img width="1918" height="901" alt="image" src="https://github.com/user-attachments/assets/ca895808-e2ec-4cc6-8b08-5eab43fdfa99" />
+### 모바일
+![KakaoTalk_20251219_092156991](https://github.com/user-attachments/assets/fbf0bbd7-dd3b-4de4-a4b3-d675fee8eb47)
 
 
 ## 주요 기능
