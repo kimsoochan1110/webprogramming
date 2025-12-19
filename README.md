@@ -124,16 +124,4 @@ webprogramming/
 | `saveRecords()` | 기록 저장 |
 | `render()` | 전체 UI 갱신 |
 
-## 라이선스
-
-MIT License
-
-## 개발 정보
-
-- **개발 기간**: 2025년 12월
-- **개발 도구**: VS Code + GitHub Copilot
-- **AI 모델**: Claude Opus 4.5
-
 ---
-
-Made with ❤️ and AI-assisted development (Vibe Coding)
