@@ -2,9 +2,13 @@
 
 복용약 관리를 위한 단일 페이지 웹 애플리케이션입니다.
 
+##
+https://kimsoochan1110.github.io/webprogramming/
+
 ## 스크린샷
 
-> 약 종류 등록 및 복용 기록 관리 화면
+> <img width="1918" height="901" alt="image" src="https://github.com/user-attachments/assets/ca895808-e2ec-4cc6-8b08-5eab43fdfa99" />
+
 
 ## 주요 기능
 
